@@ -1,0 +1,44 @@
+.tertiary-dashboard {
+    background: #fff;
+    min-height: 100vh;
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #025bb5;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: linear-gradient(135deg, #037cf6, #025bb5);
+    /* translucent white */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    background: linear-gradient(135deg, #025bb5, #014080);
+}

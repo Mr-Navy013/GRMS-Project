@@ -1,0 +1,74 @@
+.admin-dashboard {
+    min-height: 100vh;
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #00264d;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+    /* red for logout */
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.admin-nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 15px;
+    background: linear-gradient(135deg, #037cf6, #025bb5);
+    border-bottom: 5px solid rgb(5, 163, 254);
+}
+
+.admin-nav li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-nav li:hover {
+    color: #00c6ff;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.panel {
+    padding: 20px;
+    background: linear-gradient(135deg, #037cf6, #025bb5);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.panel:hover {
+    background: #0052cc;
+}
+
+.reject-btn {
+    background: #ff4d4d;
+    /* red for reject/cancel */
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.reject-btn:hover {
+    background: #cc0000;
+}

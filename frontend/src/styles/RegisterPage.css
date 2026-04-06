@@ -1,0 +1,82 @@
+.register-card {
+    background: #fff;
+    padding: 1.2rem;
+    /* thoda kam padding */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    width: 360px;
+    /* fixed width */
+    max-width: 95%;
+    /* responsive */
+    max-height: 75vh;
+    /* height limit */
+    overflow-X: Hidden;
+    /* scroll agar content zyada ho */
+    margin: auto;
+    text-align: center;
+}
+
+.register-card h2 {
+    margin-bottom: 1rem;
+    color: #037cf6;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.register-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+.register-card label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.register-card input,
+.register-card select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border-top: none;
+    color: rgba(58, 52, 52, 0.555);
+    outline: none;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+    border-color: #037cf6;
+    box-shadow: 0 0 8px rgba(3, 124, 246, 0.4);
+    border-top: none;
+}
+
+.register-card button {
+    padding: 0.7rem;
+    background: #037cf6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.register-card button:hover {
+    background: #025bb5;
+}
+
+.register-card .close-btn {
+    margin-top: 0.8rem;
+    background: #ff4d4d;
+}
+
+.register-card .close-btn:hover {
+    background: #cc0000;
+}
+
+.required {
+    color: red;
+}

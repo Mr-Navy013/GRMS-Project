@@ -1,0 +1,159 @@
+/* Outer login card container */
+.login-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    width: 380px;
+    /* fixed width */
+    max-width: 95%;
+    /* responsive */
+    height: 75vh;
+    /* fixed height */
+    overflow-y: auto;
+    /* vertical scroll if content exceeds */
+    overflow-x: hidden;
+    /* horizontal hidden */
+    margin: auto;
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+    /* smooth popup animation */
+}
+
+/* Heading */
+.login-card h2 {
+    margin-bottom: 1.5rem;
+    color: #037cf6;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Form layout */
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+/* Labels */
+.input-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.required {
+    color: red;
+    margin-left: 2px;
+}
+
+/* Inputs */
+.login-card input {
+    padding: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    color: rgba(58, 52, 52, 0.555);
+    border-top: none;
+}
+
+.login-card input:focus {
+    border-color: #037cf6;
+    box-shadow: 0 0 8px rgba(3, 124, 246, 0.4);
+}
+
+/* Error input state */
+.error-input {
+    border: 1px solid red;
+    background: #ffecec;
+}
+
+.error-input::placeholder {
+    color: rgb(243, 64, 64);
+    font-size: 0.85rem;
+}
+
+/* Error message (below inputs if needed) */
+.error-msg {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -0.5rem;
+}
+
+/* Forgot password link */
+.forgot-password {
+    display: block;
+    margin-top: -0.3rem;
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+
+.forgot-password a {
+    color: #037cf6;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Login button */
+.login-card button[type="submit"] {
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #037cf6, #025bb5);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.3s ease;
+    width: 100%;
+}
+
+.login-card button[type="submit"]:hover {
+    background: linear-gradient(135deg, #025bb5, #014080);
+}
+
+/* Login btn active state */
+.login-card button[type="submit"]:active {
+    background: linear-gradient(135deg, #598ec4, #225990);
+}
+
+/* Cancel login button */
+.login-card .close-btn {
+    margin-top: 1rem;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.login-card .close-btn:hover {
+    background: #cc0000;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
