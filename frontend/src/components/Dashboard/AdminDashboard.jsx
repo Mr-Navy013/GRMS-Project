@@ -10,11 +10,11 @@ const AdminDashboard = ({ user }) => {
       </header>
       <nav className="admin-nav">
         <ul>
-          <li>📊 Dashboard</li>
-          <li>📝 Manage Grievances</li>
-          <li>👥 Manage Users</li>
-          <li>📑 Reports</li>
-          <li>⚙️ Settings</li>
+          <li>Dashboard</li>
+          <li>Manage Grievances</li>
+          <li>Manage Users</li>
+          <li>Reports</li>
+          <li>Settings</li>
         </ul>
       </nav>
       <main className="dashboard-content">

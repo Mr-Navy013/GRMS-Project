@@ -9,11 +9,11 @@ const TertiaryDashboard = ({ user }) => {
         <button className="logout-btn">Logout</button>
       </header>
       <main className="dashboard-content">
-        <div className="card">📝 Submit Grievance</div>
-        <div className="card">📊 Track Grievances</div>
-        <div className="card">🔔 Notifications</div>
-        <div className="card">📑 Reports</div>
-        <div className="card">👤 Profile</div>
+        <div className="card">Submit Grievance</div>
+        <div className="card">Track Grievances</div>
+        <div className="card">Notifications</div>
+        <div className="card">Reports</div>
+        <div className="card">Profile</div>
       </main>
     </div>
   );

@@ -11,11 +11,11 @@ const OfficerDashboard = ({ user }) => {
 
       <nav className="dashboard-nav">
         <ul>
-          <li>📊 Dashboard</li>
-          <li>📥 Assigned Complaints</li>
-          <li>⚙️ Manage Status</li>
-          <li>📑 Reports</li>
-          <li>🔔 Notifications</li>
+          <li>Dashboard</li>
+          <li>Assigned Complaints</li>
+          <li>Manage Status</li>
+          <li>Reports</li>
+          <li>Notifications</li>
         </ul>
       </nav>
 
