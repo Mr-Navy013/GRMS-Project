@@ -1,0 +1,39 @@
+services:
+  # 1. Backend Web Service
+  - type: web
+    name: grms-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URL
+        value: mongodb+srv://navycutdehury:Navy%401234@grievance.qiez47o.mongodb.net/grievance?retryWrites=true&w=majority
+      - key: JWT_SECRET
+        value: grievance_secret_key_2026
+      - key: NODE_ENV
+        value: production
+
+  # 2. Frontend Static Site
+  - type: web
+    name: grms-frontend
+    runtime: static
+    rootDir: frontend
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: grms-backend
+          property: host

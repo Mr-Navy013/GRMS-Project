@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/StudentDashboard.css";
 import axios from "axios";
+import { getApiUrl } from "../../utils/apiConfig";
 
 import NotificationBell from "../Shared/NotificationBell";
 import CategoryPopupSelect from "../Shared/CategoryPopupSelect";
@@ -209,7 +210,7 @@ const StudentDashboard = ({ user }) => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/forgot-password", {
+      await axios.post(getApiUrl("/api/forgot-password"), {
         email: userEmail,
         newPassword: passwordData.newPassword,
         role: "Student",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/RegisterPage.css";
 import axios from "axios";
+import { getApiUrl } from "../../utils/apiConfig";
 import CustomSelectModal from "../Shared/CustomSelectModal";
 
 const RegisterPage = ({ role, onClose }) => {
@@ -43,7 +44,7 @@ const RegisterPage = ({ role, onClose }) => {
     setApiMsg({ type: "", text: "" });
     try {
       const roleSlug = role.toLowerCase().replace(/\s+/g, "");
-      const res = await axios.post(`http://localhost:5000/api/register/${roleSlug}`, formData);
+      const res = await axios.post(getApiUrl(`/api/register/${roleSlug}`), formData);
       setApiMsg({ type: "success", text: res.data.message || "Registered successfully!" });
       setTimeout(() => {
         onClose();

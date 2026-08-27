@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/LoginPage.css";
 import axios from "axios";
+import { getApiUrl } from "../../utils/apiConfig";
 
 const LoginPage = ({ role, onClose, setShowForgotPassword, onLoginSuccess }) => {
   const [emailOrUser, setEmailOrUser] = useState("");
@@ -35,7 +36,7 @@ const LoginPage = ({ role, onClose, setShowForgotPassword, onLoginSuccess }) => 
           : { email: emailOrUser, password };
 
         const roleSlug = role.toLowerCase().replace(/\s+/g, "");
-        const res = await axios.post(`http://localhost:5000/api/login/${roleSlug}`, requestBody);
+        const res = await axios.post(getApiUrl(`/api/login/${roleSlug}`), requestBody);
 
         localStorage.setItem("token", res.data.token);
         onLoginSuccess(role, res.data.user);

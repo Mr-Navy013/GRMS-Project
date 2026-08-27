@@ -23,6 +23,24 @@ process.on("uncaughtException", (err) => {
   console.warn("⚠️ Uncaught Exception:", err?.message || err);
 });
 
+// Root welcome & health endpoints for Render deployment
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "GRMS Backend API",
+    message: "Grievance Redressal Management System API is running smoothly!",
+    timestamp: new Date().toISOString(),
+  });
+});
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    status: "healthy",
+    dbState: mongoose.connection.readyState === 1 ? "connected" : "in-memory / connecting",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Mount API routes
 app.use("/api", LoginAPI);
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/ForgotPassword.css";
 import axios from "axios";
+import { getApiUrl } from "../../utils/apiConfig";
 
 const ForgotPassword = ({ onClose }) => {
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ const ForgotPassword = ({ onClose }) => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/forgot-password", {
+      const res = await axios.post(getApiUrl("/api/forgot-password"), {
         email,
         newPassword,
       });
