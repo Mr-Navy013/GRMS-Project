@@ -44,14 +44,16 @@
     margin-top: 0.3rem;
     outline: none;
     border-top: none;
-    color: rgba(58, 52, 52, 0.555);
+    color: #000000 !important;
+    font-weight: 500;
 }
 
 .cs-popup input:focus,
 .cs-popup textarea:focus {
     border-color: #037cf6;
     box-shadow: 0 0 8px rgba(3, 124, 246, 0.4);
-    border: none;
+    border-top: none;
+    color: #000000 !important;
 }
 
 span {

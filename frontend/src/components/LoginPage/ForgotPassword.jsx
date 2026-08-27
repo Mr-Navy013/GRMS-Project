@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../styles/ForgotPassword.css";
+import axios from "axios";
 
 const ForgotPassword = ({ onClose }) => {
+  const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -9,21 +11,31 @@ const ForgotPassword = ({ onClose }) => {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const checkStrength = (pwd) => {
-    if (pwd.length >= 8 && /[A-Z]/.test(pwd) && /\d/.test(pwd)) {
+    if (pwd.length >= 6 && /\d/.test(pwd)) {
       setStrength("Strong Password ✔✔");
     } else {
-      setStrength("Weak Password ❌");
+      setStrength("Weak Password (min 6 chars, include numbers) ❌");
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
+
     if (newPassword !== confirmPassword) {
-      setMessage("Passwords are different from each other ❌");
-    } else if (strength.startsWith("Strong")) {
+      setMessage("Passwords do not match ❌");
+      return;
+    }
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/forgot-password", {
+        email,
+        newPassword,
+      });
+      setMessage(res.data.message || "Password updated successfully!");
       setShowSuccess(true);
-    } else {
-      setMessage("Please enter a stronger password.");
+    } catch (err) {
+      setMessage(err.response?.data?.error || "Password update failed ❌");
     }
   };
 
@@ -31,39 +43,59 @@ const ForgotPassword = ({ onClose }) => {
     <div className="forgot-card">
       <h2>Change Password</h2>
       <form onSubmit={handleSubmit}>
+        <label>Enter Registered Email <span>*</span></label>
+        <input 
+          type="email" 
+          value={email}
+          placeholder="your.email@gmail.com"
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setMessage("");
+          }}
+          required 
+        />
+
         <label>New Password <span>*</span></label>
         <input 
           type="password" 
           value={newPassword} 
+          placeholder="Enter New Password"
           onChange={(e) => { 
             setNewPassword(e.target.value); 
-            checkStrength(e.target.value); 
+            checkStrength(e.target.value);
+            setMessage("");
           }} 
           required 
         />
-        <small className={strength.startsWith("Strong") ? "strength strong" : "strength weak"}>
-          {strength}
-        </small>
+        {strength && (
+          <small className={strength.startsWith("Strong") ? "strength strong" : "strength weak"}>
+            {strength}
+          </small>
+        )}
 
-        <label>Confirm Password <span>*</span></label>
+        <label>Confirm New Password <span>*</span></label>
         <input 
           type="password" 
           value={confirmPassword} 
-          onChange={(e) => setConfirmPassword(e.target.value)} 
+          placeholder="Confirm New Password"
+          onChange={(e) => {
+            setConfirmPassword(e.target.value);
+            setMessage("");
+          }} 
           required 
         />
 
         {message && (
-          <p className={message.includes("successfully") ? "success-msg" : "error-msg"}>
+          <p className={showSuccess ? "success-msg" : "error-msg"} style={{ marginTop: "0.5rem" }}>
             {message}
           </p>
         )}
 
-        <button type="submit" className="confirm-btn">Confirm</button>
+        <button type="submit" className="confirm-btn">Confirm Change</button>
       </form>
-      {/* Cancel button triggers onClose from WelcomePage */}
+
       <button className="close-btn" onClick={onClose}>Cancel</button>
-      {/* Success Popup */}
+
       {showSuccess && (
         <div className="success-popup">
           <p>✅ Password has been changed successfully!</p>

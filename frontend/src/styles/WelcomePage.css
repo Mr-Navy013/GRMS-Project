@@ -1,100 +1,164 @@
+/* Glass Sky Blue Theme - Welcome Page */
 .welcome-container {
     position: relative;
     overflow: hidden;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     text-align: center;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #ffffff 100%);
+    color: #0f172a;
 }
 
 .welcome-header {
-    position: fixed;
-    top: 10%;
+    position: absolute;
+    top: 12%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    width: 90%;
+    max-width: 1000px;
 }
 
 .welcome-container::before {
     content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    margin-top: 12rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 320px;
+    height: 320px;
     background-image: url("/Images/OUTR_Logo.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.3;
-    z-index: -1;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .sub-heading {
-    font-size: 3vw;
-    color: #222;
-    font-weight: 900;
-    font-family: 'Segoe UI';
+    font-size: 1.5rem;
+    color: #0284c7;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .main-heading {
-    font-size: 4vw;
-    font-weight: bolder;
-    color: #037cf6;
-    margin-top: 0.5rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #0369a1;
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    text-shadow: 0 4px 16px rgba(2, 132, 199, 0.12);
 }
 
 .button-group {
-    position: fixed;
-    top: 65%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    z-index: 5;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h4 {
-    margin-top: 2rem;
+.button-group h4 {
+    margin-top: 1.8rem;
+    font-size: 1rem;
+    color: #475569;
+    font-weight: 600;
 }
 
 .btn {
-    margin: 0 1rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    border: 5px solid #5577dc5c;
-    width: 250px;
-    border-radius: 20px;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    width: 260px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.25s ease-in-out;
 }
 
 .login-btn {
-    background-color: #037cf6;
-    color: #fff;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.45);
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
 }
 
 .link-btn {
     background: none;
     border: none;
-    color: #037cf6;
+    color: #0284c7;
     font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    padding: 0;
+    padding: 0 4px;
+    margin-left: 4px;
+    transition: color 0.2s;
 }
 
 .link-btn:hover {
+    color: #0369a1;
     text-decoration: underline;
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 2px 4px 6px 0;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.popup {
+    background: linear-gradient(135deg, rgba(224, 242, 254, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%);
+    border: 1px solid rgba(186, 230, 253, 0.8);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(2, 132, 199, 0.2);
+    animation: modalPop 0.25s ease-out;
+    max-width: 90vw;
+}
+
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.dropdown-close-btn {
+    margin-top: 18px;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dropdown-close-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
 }
 
 .footer {
@@ -102,24 +166,47 @@ h4 {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    border-top: 4px solid #037cf6;
+    background: rgba(224, 242, 254, 0.92);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(186, 230, 253, 0.8);
     text-align: center;
-    padding: 1rem 0;
+    padding: 14px 0;
     z-index: 10;
 }
 
 .footer h4 {
     margin: 0;
-    font-size: 1rem;
-    font-weight: bolder;
-    color: #222;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
 }
 
-.footer button {
-    color: #037cf6;
+.footer .support-link {
+    background: none;
+    border: none;
+    color: #0284c7;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 0 4px;
 }
 
-.footer button:hover {
+.footer .support-link:hover {
+    color: #0369a1;
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .sub-heading {
+        font-size: 1.1rem;
+    }
+
+    .main-heading {
+        font-size: 1.8rem;
+    }
+
+    .welcome-container::before {
+        width: 220px;
+        height: 220px;
+    }
 }

@@ -1,103 +1,18 @@
-.officer-dashboard {
-  min-height: 100vh;
-  color: #fff;
-  font-family: "Segoe UI", sans-serif;
-}
+/* Glass Sky Blue Theme - Officer Dashboard */
+@import "./AdminDashboard.css";
 
-.dashboard-header {
+.officer-header-bar {
+  position: relative;
+  z-index: 10000 !important;
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+  backdrop-filter: blur(16px);
+  color: #0369a1;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: linear-gradient(135deg, #037cf6, #025bb5);
-}
-
-.logout-btn {
-  background: #ff4d4d;
-  /* red for logout */
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.dashboard-nav ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  padding: 15px;
-  background: linear-gradient(135deg, #037cf6, #025bb5);
-  border-bottom: 5px solid rgb(5, 163, 254);
-}
-
-.dashboard-nav li {
-  cursor: pointer;
-  transition: 0.3s;
-
-
-  
-}
-
-.dashboard-nav li:hover {
-  color: #65e2ed;
-}
-
-.dashboard-content {
-  display: flex;
-  justify-content: space-around;
-  background: #fff;
-  padding: 30px;
-}
-
-.tile {
-  background: #ffffff20;
-  padding: 25px;
-  border-radius: 12px;
-  min-width: 180px;
-  text-align: center;
-  font-size: 1.2rem;
-  transition: transform 0.3s;
-  background: linear-gradient(135deg, #037cf6, #025bb5);
-}
-
-.tile:hover {
-  /* transform: scale(1.05); */
-  background: linear-gradient(135deg, #42709d, #2d7fd1);
-}
-
-.grievance-table {
-  margin: 30px;
-  background: linear-gradient(135deg, #037cf6, #025bb5);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.grievance-table table {
-  width: 100%;
-  border-collapse: collapse;
-  color: #fff;
-}
-
-.grievance-table th,
-.grievance-table td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ffffff30;
-}
-
-.grievance-table button {
-  background: #0072ff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.grievance-table button:hover {
-  background: #0052cc;
-}
-
-.grievance-table .reject-btn {
-  background: #ff4d4d;
+  align-items: center;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.8);
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
+  flex-wrap: wrap;
+  gap: 12px;
 }

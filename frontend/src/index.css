@@ -1,1 +1,69 @@
 @import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f172a;
+}
+
+/* Custom Thin Blue Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(224, 242, 254, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Text wrapping for paragraphs and descriptions */
+p, h1, h2, h3, h4, h5, h6, span, div, small, label, code {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+/* Table header & cell layout rules */
+table th {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+table td {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Input Fields Color Rules:
+   - White background: text color black (#0f172a)
+   - Blue background: text color white (#ffffff)
+   - Red background: text color white (#ffffff)
+*/
+input, select, textarea {
+  color: #0f172a !important;
+  font-weight: 500;
+  max-width: 100%;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #64748b;
+  font-weight: normal;
+}

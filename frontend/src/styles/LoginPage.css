@@ -1,157 +1,148 @@
-/* Outer login card container */
+/* Glass Sky Blue Theme - Login Page Modal */
+
+.login-card-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 16px;
+}
+
 .login-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    width: 380px;
-    /* fixed width */
-    max-width: 95%;
-    /* responsive */
-    height: 75vh;
-    /* fixed height */
+    background: linear-gradient(135deg, rgba(240, 249, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 100%);
+    border: 1px solid rgba(186, 230, 253, 0.8);
+    padding: 2.2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(2, 132, 199, 0.2);
+    width: 400px;
+    max-width: 92vw;
+    max-height: 90vh;
     overflow-y: auto;
-    /* vertical scroll if content exceeds */
-    overflow-x: hidden;
-    /* horizontal hidden */
-    margin: auto;
+    animation: fadeIn 0.25s ease;
     text-align: center;
-    animation: fadeIn 0.4s ease-in-out;
-    /* smooth popup animation */
 }
 
-/* Heading */
 .login-card h2 {
-    margin-bottom: 1.5rem;
-    color: #037cf6;
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0369a1;
 }
 
-/* Form layout */
-.login-card form {
+.login-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.1rem;
+}
+
+.form-group-login {
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    gap: 0.35rem;
 }
 
-/* Labels */
-.input-label {
-    font-size: 0.8rem;
+.form-group-login label {
+    font-size: 0.88rem;
     font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: #333;
+    color: #1e293b;
 }
 
-.required {
-    color: red;
-    margin-left: 2px;
-}
-
-/* Inputs */
-.login-card input {
-    padding: 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
+.form-group-login input {
     width: 100%;
-    color: rgba(58, 52, 52, 0.555);
-    border-top: none;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.95rem;
+    color: #0f172a !important;
+    background: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
-.login-card input:focus {
-    border-color: #037cf6;
-    box-shadow: 0 0 8px rgba(3, 124, 246, 0.4);
+.form-group-login input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
 }
 
-/* Error input state */
-.error-input {
-    border: 1px solid red;
-    background: #ffecec;
+.form-group-login input.error-input {
+    border-color: #ef4444;
 }
 
-.error-input::placeholder {
-    color: rgb(243, 64, 64);
-    font-size: 0.85rem;
-}
-
-/* Error message (below inputs if needed) */
-.error-msg {
-    color: red;
-    font-size: 0.85rem;
-    margin-top: -0.5rem;
-}
-
-/* Forgot password link */
-.forgot-password {
-    display: block;
-    margin-top: -0.3rem;
-    margin-bottom: 0.5rem;
+.forgot-password-link {
     text-align: right;
+    margin-top: -0.3rem;
 }
 
-.forgot-password a {
-    color: #037cf6;
-    font-size: 0.85rem;
-    text-decoration: none;
+.forgot-password-link span {
+    font-size: 0.84rem;
+    color: #0284c7;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
-.forgot-password a:hover {
+.forgot-password-link span:hover {
+    color: #0369a1;
     text-decoration: underline;
 }
 
-/* Login button */
-.login-card button[type="submit"] {
-    padding: 0.9rem;
-    background: linear-gradient(135deg, #037cf6, #025bb5);
-    color: #fff;
+.login-submit-btn {
+    margin-top: 0.4rem;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
     border: none;
-    border-radius: 8px;
+    padding: 0.85rem;
+    border-radius: 10px;
     font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.2s ease, background 0.3s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
     width: 100%;
 }
 
-.login-card button[type="submit"]:hover {
-    background: linear-gradient(135deg, #025bb5, #014080);
+.login-submit-btn:hover {
+    background: #0369a1;
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
 }
 
-/* Login btn active state */
-.login-card button[type="submit"]:active {
-    background: linear-gradient(135deg, #598ec4, #225990);
-}
-
-/* Cancel login button */
+/* White Close Button (Dashboard Cancel Button Style) */
 .login-card .close-btn {
-    margin-top: 1rem;
-    background: #ff4d4d;
-    color: #fff;
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 8px;
+    margin-top: 0.8rem;
+    background: #ffffff !important;
+    color: #334155 !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 0.75rem 1.2rem;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .login-card .close-btn:hover {
-    background: #cc0000;
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #94a3b8 !important;
 }
 
-/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: scale(0.95);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
